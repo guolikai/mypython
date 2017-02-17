@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax</title>
+</head>
+<body>
+	<input id='na' type='text'/>
+	<input type='button' value='点击提交Ajax请求' onclick='DoAjax'/>
+	<!--
+	<button type="submit" onclick='DoAjax' >点击提交Ajax请求</button>
+	-->
+	<script src="/static/js/jquery-1.4.2.js"></script>
+	<!--<script src='/static/jquery/jquery-1.8.2.js'></script>-->
+	<script type='text/javascript'>
+		function DoAjax(){
+			console.log('jiazai ok')
+			var temp=$('#na').val()
+			$.ajax({
+				url:'/app04/ajax/',
+				type:'POST',
+				data:{date:temp},
+				success:function(arg){
+					var obj=jQuery.parseJSON(arg);
+					console.log(obj.status);
+					console.log(obj.msg);
+					console.log(obj.data);
+					console.log('success');
+				},
+				error:function(){
+					console.log('filed')
+				}
+			});
+		}
+	
+	</script>
+</body>
+</html>

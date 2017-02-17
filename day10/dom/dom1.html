@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>dom1</title>
+        <script type="text/javascript">
+            function Fun(){alert('Welcome to www.guolikai.com!')}
+            function Fun1(){alert('执行fun1')}
+            function Fun2(){alert('执行fun2')}
+            function register(){
+                document.ondblclick=function(){alert('是否注册')}
+                }
+            function Fun3(){
+                var result = window.confirm('是否要跳转');
+                if (result){
+                 window.location.href = 'https://www.baidu.com'}else{console.log('取消')}
+                }
+        </script>
+    </head>
+    <body>
+        <div style="background-color:blue" onclick="alert('Welcome to www.guolikai.com!')">欢迎！</div>
+        <div  onclick="Fun()">欢迎！</div>
+        <div  onclick="document.ondblclick=Fun1">注册事件1</div>
+        <div  onclick="document.ondblclick=Fun2">注册事件2</div>
+        <div  onclick="Fun3()">跳转百度</div>
+        <div  onclick="register()">注册</div><br>
+
+    <a href = 'https://www.baidu.com' target="_blank">点我跳转</a>
+    <input type="button" value="点我 仅限IE" onclick='navigate("https://www.baidu.com")'/>
+
+    </body>
+</html>

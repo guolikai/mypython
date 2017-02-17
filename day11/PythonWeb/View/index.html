@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>郭立凯</title>
+	</head>
+	<body>
+		<div>姓名:郭立凯</div> <!--块级标签-->
+		<span>籍贯:</span>  <!--内联标签-->
+		<span><a href="http://baike.baidu.com/item/%E6%B2%B3%E5%8D%97/132980" target="_blank">河南</a></span>
+		<!--&lt;表示小于符号；<br>表示换行,自动结束；<p></p>表示段落；&nbsp;表示空格；&gt;表示小于符号；<a></a>表示超链接-->
+		<div><a href="http://baike.baidu.com/item/%E6%9E%97%E5%B7%9E/18572" target="_blank" >&lt;我的家乡:&nbsp;林州&nbsp;&gt;<br></a></div>
+	<!--<a href='http://baike.baidu.com/link?url=RZSu59mdrHgG6Q6erim1qYgLV07R2dUgNAKRbxNKhk3Z5vIVt8CqCUY1yL1TFoqg5y4znxEuxw0ukp0WoO5yudgdN-xQwOGWLj1bfSr8UsnzKyiMd2wFx8IQbD2Vbv-f'>风景区:红旗渠</a><br>
+	-->
+	    <a href='http://baike.baidu.com/link?url=RZSu59mdrHgG6Q6erim1qYgLV07R2dUgNAKRbxNKhk3Z5vIVt8CqCUY1yL1TFoqg5y4znxEuxw0ukp0WoO5yudgdN-xQwOGWLj1bfSr8UsnzKyiMd2wFx8IQbD2Vbv-f' target="_blank">风景区《一》:红旗渠</a><br>
+		<a href="http://baike.baidu.com/item/%E6%B4%AA%E8%B0%B7%E5%B1%B1" target="_blank">风景区《二》:洪谷山</a>
+		<div>出生地：
+			<select>
+				<option value="1">上海</option>
+				<option value="2">北京</option>
+				<option value="3" >广州</option>
+				<option value="4">深圳</option>
+				<option value="5"selected="selected">河南省</option>
+			</select>
+			<select size="5">
+				<option value="1">上海</option>
+				<option value="3" >广州</option>
+				<option value="4">深圳</option>
+				<option value="2" >北京</option>
+				<option value="5"selected="selected">安阳</option>
+			</select>
+			<select multiple="multiple" size="4">
+				<option value="1">上海</option>
+				<option value="3" >广州</option>
+				<option value="4">深圳</option>
+				<option value="2" selected="selected">北京</option>
+				<option value="5">林州市</option>
+			</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+			<select>
+				<optgroup label="河南省">
+					<option value="1">郑州</option>
+					<option value="2">安阳</option>
+				</optgroup>
+				<optgroup label="北京市">
+					<option value="3" selected="selected">西城区</option>
+					<option value="4">朝阳区</option>
+				</optgroup>
+			</select>
+		</div>
+
+		邮&nbsp;&nbsp;&nbsp;箱：<input /><br>
+		用户名：<input type="text" /><br>
+		密&nbsp;&nbsp;&nbsp;码：<input type="password" /> <br>
+
+		兴趣：
+		篮球<input type="checkbox"/>
+		足球<input type="checkbox"/>
+		唱歌<input type="checkbox"/>
+		美女<input type="checkbox"/><br>
+		性别：
+		男<input type="radio" name="gender"/>
+		女<input type="radio" name="gender"/><br>
+		备注：<textarea></textarea><br>
+		上传文件：<input type="file"/><br>
+		提交：<input type="button" value="提交"/>&nbsp;&nbsp;<input type="submit" value="提交"/><br>
+
+		<div>
+			<a href="#t1"><h1>My Hometown:Linzhou</h1></a>
+			<a href="#t2"><h2>Scenic First:Red Flag Canal </h2></a>
+			<a href="#t3"><h2>Scenic Two:HongGuShan</h2></a>
+		</div>
+		<div id='t1' style="height:500px;background-color:red" ><a href="http://baike.baidu.com/item/%E6%9E%97%E5%B7%9E/18572" target="_blank" >&lt;&nbsp;林州&nbsp;&gt;<br></a></div>
+	    <div id='t2' style="height:500px;background-color:green"><a href='http://baike.baidu.com/link?url=RZSu59mdrHgG6Q6erim1qYgLV07R2dUgNAKRbxNKhk3Z5vIVt8CqCUY1yL1TFoqg5y4znxEuxw0ukp0WoO5yudgdN-xQwOGWLj1bfSr8UsnzKyiMd2wFx8IQbD2Vbv-f' target="_blank">红旗渠</a><br></div>
+		<div id='t3' style="height:500px;background-color:blue"><a href="http://baike.baidu.com/item/%E6%B4%AA%E8%B0%B7%E5%B1%B1" target="_blank">洪谷山</a></div>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+.member_con{
+	background: #fff;
+	padding: 20px 0 50px 0px;
+}
+.member ul{
+	width: 95%;
+    margin: 0 auto;
+    border-radius: 3px;
+    border-left: solid 1px #eeeeee;
+    border-right: solid 1px #eeeeee;
+}
+.member ul li{
+	color: #bbbbbb;
+	font-size: 16px;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: solid 1px #eeeeee;
+}
+.member ul li.head{
+	color: #33363f;
+	background: #eeeeee;
+}
+.member ul li span{
+	display: block;
+	float: left;
+	border-right: solid 1px #eeeeee;
+	padding-left:32px; 
+}
+.member ul li span.name{
+	width: 20%;
+}
+.member ul li span.tel{
+	width: 30%;
+}
+.member ul li span.e-mail{
+	border:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>Interva</title>
+        <script type="text/javascript">
+            var s = setInterval("console.log('print')",2000)
+            <!--setInterval("alert('alert')",2000)-->
+           function stop(){
+                clearInterval(s);
+                }
+        </script>
+    </head>
+    <body>
+        <div onclick="stop()">stop</div>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<title></title>
+	<link rel="stylesheet" href="/static/css/comm.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/login.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/mystyle.css" type="text/css">
+	<script type="text/javascript" src="/static/js/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.base64.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.md5.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>	
+</head>
+<body> 
+<!--<div class="logo"><p class="logo_text">主机管理平台</p> </div>-->
+<!-- 左侧菜单选项========================================= -->
+	<div class="floatleft">
+        <p class="logo_p">欢迎登陆主机管理系统</p>
+		<ul class="nav">
+			<li class="nav_li">
+            <a id="typeMeun" href="javascript:void(0);" class="nav_a tb" >用户类型管理<span ></span></a>
+			<ul class="detailed">
+						<li><a class="focus" href="/web/type_add.html">用户类型添加</a></li>
+						<li><a class="focus" href="/web/type_del.html">用户类型删除</a></li>
+						<li><a class="focus" href="/web/type_mod.html">用户类型修改</a></li>
+						<li><a class="focus" href="/web/type_get.html">用户类型查找</a></li>
+					 </ul>
+            </li>
+			<li class="nav_li">
+			 	<a id="userMeun" href="javascript:void(0);" class="nav_a tb" >用户管理<span></span></a>
+					<ul class="detailed hidden">
+						<li><a class="focus" href="/web/user_add.html">用户添加</a></li>
+						<li><a class="focus" href="/web/user_del.html">用户删除</a></li>
+						<li><a class="focus" href="/web/user_mod.html">用户修改</a></li>
+						<li><a class="focus" href="/web/user_get.html">用户查找</a></li>
+					 </ul>
+            </li>
+			<li class="nav_li">
+			 	<a id="groupMeun" href="javascript:void(0);" class="nav_a tb" >用户组管理<span></span></a>
+					<ul class="detailed hidden">
+						<li><a class="focus" href="/web/group_add.html">用户组添加</a></li>
+						<li><a class="focus" href="/web/group_del.html">用户组删除</a></li>
+						<li><a class="focus" href="/web/group_mod.html">用户组修改</a></li>
+						<li><a class="focus" href="/web/group_get.html">用户组查找</a></li>
+					 </ul>
+            </li>
+            
+            <li class="nav_li">
+            	<a id="hostMeun" href="javascript:void(0);" class="nav_a tb" >主机管理<span></span></a>
+				<ul class="detailed  hidden">
+					<li><a class="focus" href="/web/host_add.html">添加主机</a></li>
+					<li><a class="focus" href="/web/host_list.html">主机列表</a></li>
+					<li><a class="focus" href="/web/host_mod.html">修改主机</a></li>
+					<li><a class="focus" href="/web/host_del.html">删除主机</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="floatright">
+        <div class="introduce">
+            <p class="platform"></p>
+            <p class="personal">{{username}}&nbsp;&nbsp;<a href='/web/logout/'>退出</a></p>
+        </div>
+		<div id="content">
+		<div class="con">
+				<p class="breadcrumb"><a href="javascript:void(0);">首页  ></a><a href="javascript:void(0);">用户类型管理 ></a><a href="javascript:void(0);">用户类型添加</a></p>
+			</div>
+			<table style='margin-left: 4%;' border="2">
+				<tr><th>用户类型ID</th><th>用户类型</th></tr>
+				{% for item in data %}
+					<tr><td>{{item.id}}</td>
+					<td>{{item.typename}}</td></tr>
+				{% endfor %}
+			</table>
+		</div>  
+	</div>
+		<script type="text/javascript">
+	    	$(".nav_li > a").click(function(){
+	            $(this).parent().siblings().removeClass("focus");
+	            $(this).parent().siblings().find("span").removeClass("close");
+	            $(this).parent().siblings().find("ul").addClass("hidden");
+	            $(this).parent().toggleClass("focus");
+	            $(this).parent().find("ul").toggleClass("hidden");
+	            $(this).find("span").toggleClass("close");
+	        });
+	        $(".detailed").find("li").click(function(){
+	            $(".detailed >li").find("a").removeClass("focus");
+	            $(this).find("a").addClass("focus");
+	        });
+    	</script>
+</body>
+</html>

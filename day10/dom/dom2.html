@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>欢迎WDX莅临指导&nbsp;</title>
+
+        <script type="text/javascript">
+            function Go(){
+            var content = document.title
+            var firstchar = content.charAt(0)
+            var sub = content.substring(1,content.length)
+            document.title = sub+firstchar
+            }
+            setInterval("Go()",1000)
+            alert(window.location.href)
+            window.location.href='http://www.baidu.com'
+        </script>
+    </head>
+    <body>
+    <!--
+    <body onload="console.log('Hello')" onbeforeunload="window.event.returnValue='是否离开此页面退出?'">
+        <div>欢迎WDX领导</div>-->
+    <a href="http://www.baidu.com" onclick="alert('走吗？')">走你</a><br>
+    <a href="http://www.baidu.com" onclick="alert('走吗？');return false;">通用版走你,不走</a><br>
+    <a href="http://www.baidu.com" onclick="alert('走吗？');window.event.returnValue=false;">走你,不走</a><br>
+    <a href="http://www.baidu.com" onclick ="alert('禁止访问');window.event.preventDefault();">IE版注册</a> <br>
+    </body>
+</html>

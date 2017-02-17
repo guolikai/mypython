@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+{% extends "master/layout.html" %}
+{% block content %}
+	<div style='background-color:red'><h1>{{system}}</h1></div>
+		{% if system %}
+			<h1>真</h1>
+		{% else %}
+			<h1>假</h1>
+		{% endif %}
+		
+		{% ifequal system 'host' %}
+			<h1>相等</h1>
+		{% else %}
+			<h1>不相等</h1>
+		{% endifequal %}
+		
+		<table border="3">
+			<caption>我的标题</caption>
+				<tr>
+					<th>id</th>
+					<th>hostname</th>
+					<th>create_date</th>
+					<th>update_date</th>
+				</tr>
+			{% for item in data %}
+				<tr>
+					<td>{{item.id}}</td>
+					<td>{{item.hostname}}</td>
+					<td>{{item.create_date|date:"Y-m-d H:i:s"}}</td>
+					<td>{{item.update_date|date:"Y-m-d H:i:s"}}</td>
+				</tr>
+			{% endfor %}
+		</table>
+{% endblock %}

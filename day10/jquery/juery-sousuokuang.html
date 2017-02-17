@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>window&nbsp;event</title>
+        <style>
+            .gray{color:gray}
+            .black{color:black}
+        </style>
+    </head>
+    <body>
+        <input type="text" class="gray" id='tip' value="请输入关键字"/>
+        <script src="js/jquery-1.8.2.js"></script>
+        <script type="text/javascript">
+            $(function(){
+            //链式执行
+            //$('#tip').focus(function(){}).blur(function(){}).click(function(){}).change(function(){})
+                $('#tip').focus(function(){
+                    //获取标签方式一：$('#tip');
+                    //获取标签方式二：$(this);
+                    var id=$(this);
+                    id.attr('class','black');
+                    if(id.val()=='请输入关键字'||id.val().trim()==''){
+                        id.val('')
+                        }
+                    });
+                $('#tip').blur(function(){
+                    var id = $(this);
+                    var val = id.val();
+                    if(val.length==0||id.val().trim()==''){
+                        id.val( '请输入关键字');
+                        id.attr('class','gray');
+                    }else{id.attr('class','black')}
+                });
+            })
+            </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>window&nbsp;event</title>
+        <script type="text/javascript">
+            function diaoji(){
+                if(window.event.altKey){
+                    alert('yes');
+                }
+                else{
+                    alert('no');
+                }
+            }
+            function Fun(){
+                alert('Welcome to http://www.guolikai.com');
+                }
+            function keycode(){
+                alert(window.event.keyCode);
+                }
+        </script>
+    </head>
+    <body>
+    <!--
+        <input type="button" value="点击" onclick="diaoji()"/>
+        <a href="http://www.baidu.com" onclick='alert("go baidu.com");window.event.returnValue=false;'>去百度吧</a>
+        <input type='button' value='key' onclick='keycode()' /><br>
+        <input type="text" onblur="alert('离开')"/>
+        <input type="text" />
+        <input type="text" onfocus="alert('进来');return false"/>
+        -->
+
+   </body>
+</html>

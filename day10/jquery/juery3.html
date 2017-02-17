@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>CSS</title>
+        <style>
+            .c1{
+                border:2px solid #999;
+            }
+             .c2{
+                font-size:60px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="id1">name:<a>glk</a></div>
+        兴趣<input name="xingqu" type="checkbox"/>美女
+        <input name="xingqu" type="checkbox"/>读书
+        <hr/>
+        <div>guolikai</div>
+        <div class="c1">guolikai</div>
+        <div class="c1">yanxiu</div>
+        <div class="c1">baidu</div>
+        <input type="button" value="点我啊" onclick="Foo()"/>
+        <script src="js/jquery-1.8.2.js"></script>
+        <script type="text/javascript">
+            $("input[type='checkbox']").prop('checked',true);
+            $(".c1").addClass('c2');
+            //$(".c1").removeClass('c2');
+            function Foo(){
+                //添加删除c2交替
+                $(".c1").toggleClass('c2');
+            }
+        </script>
+    </body>
+</html>

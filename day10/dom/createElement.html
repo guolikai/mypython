@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>window&nbsp;event</title>
+        <style>
+            .gray{color:gray}
+            .black{color:black}
+        </style>
+        <script type="text/javascript">
+            function InnerText(){
+      			alert(document.getElementById('inner').innerText)
+      		}
+      		function InnerHTML(){
+        	alert(document.getElementById('inner').innerHTML)
+        	}
+            </script>
+    </head>
+    <body>
+<!--
+    var divMain = document.getElementById(‘ddd’)
+	var btn = document.createElement(‘input’)
+	btn.type=’botton’
+	btn.value = ‘我是动态的’   //数据库获取
+	divMain.appendChild(btn)
+	divMain.innerText
+	divMain.innerHTML
+	-->
+	<a id='inner'>我是<font color='red'>红</font>色</a>
+	<input type="button" value="Text" onclick="InnerText()"/>
+	<input type="button" value="HTML" onclick="InnerHTML()"/>
+    </body>
+</html>

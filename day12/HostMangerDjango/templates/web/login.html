@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<title></title>
+	<link rel="stylesheet" href="/static/css/comm.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/login.css" type="text/css">
+	
+	<script type="text/javascript" src="/static/js/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.base64.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.md5.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>	
+	</head>
+	<body class="body">
+		<div class="logo">
+			<p class="logo_text">主机管理平台</p> 
+			<!-- 
+			<a href="/admin/" class="admin" ><font color="red">管理员入口</font></a>
+			 -->
+		</div>
+		<form  class="login" action="/web/login.html/" method="POST">
+			{% csrf_token %}	
+	    	<p class="system">登录窗口</p>
+	    	<input type="text" id="user1" name="username" placeholder="请输入用户名" class="username" /><br>
+	    	<input type="password" id="pass1" name="password"  placeholder="请输入密码" class="password" />
+	    	<label style="color:red;">{{status}}</label>
+	    	<!--<input type="checkbox" value="" class="checkbox" /><span>下次自动登录</span>
+	    	-->
+			<div class="info" id="error_info"></div>
+			<button style='width=10px' class="login_a" type="submit">登 录</button>
+	    </form>
+   <p class="footer">Copyright © 2016-12-20 GuoLikai 主机管理系统<br><br>技术支持:glk73748196@sina.com</p>
+    
+    <script type="text/javascript">
+    	$(".checkbox").click(function(){
+    		$(this).toggleClass("select");
+    	});
+    </script>
+</body>
+</html>

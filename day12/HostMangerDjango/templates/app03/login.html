@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<title></title>
+	<link rel="stylesheet" href="/static/css/comm.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/login.css" type="text/css">
+	
+	<script type="text/javascript" src="/static/js/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.base64.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.md5.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>	
+	</head>
+	<body class="body">
+		<div class="logo">
+			<p class="logo_text">主机管理平台</p> 
+			<!-- 
+			<a href="/admin/" class="admin" ><font color="red">管理员入口</font></a>
+			 -->
+		</div>
+		<form  class="login" action="/app03/login/" method="POST">		
+	    	<p class="system">登录窗口</p>
+	    	<p>用户名:{{data.username}}</p>
+	    	<p>邮箱:{{data.email}}</p>
+	    	<p>IP:{{data.ip}}</p><label style="color:red">{{error}}</label>
+			<button class="login_a" type="submit">登 录</button>
+	    </form>
+   <p class="footer">Copyright © 2016-12-20 GuoLikai 主机管理系统<br><br>技术支持:glk73748196@sina.com</p>
+    
+    <script type="text/javascript">
+    	$(".checkbox").click(function(){
+    		$(this).toggleClass("select");
+    	});
+    </script>
+</body>
+</html>

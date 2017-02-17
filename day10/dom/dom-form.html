@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>form</title>
+        <style>
+            .blue{color:blue};
+            .black{color:black};
+        </style>
+        <script type="text/javascript">
+        function SUBMIT(){
+            document.getElementById('form1').submit()
+            }
+        function Enter(){
+                //获取标签
+                var id = document.getElementById('tip');
+                id.className = 'black';
+                //id.value输入的值
+                if(id.value=='请输入关键字'||id.value.trim()==''){id.value = ''}
+            }
+        function Leave(){
+            var id = document.getElementById('tip');
+            var val = id.value;
+            if(val.length==0||id.value.trim()==''){
+                id.value = '请输入关键字';
+                id.className = 'blue';
+                }else{id.className = 'black'}
+            }
+        </script>
+    </head>
+    <body>
+    <form  id='form1' action="http://www.sogou.com/sogou?">
+        <input id='tip' type="text" name="query" class="blue"  value="请输入关键字" onfocus="Enter()" onblur="Leave()"/>
+        <input type="submit" value="提交"/>
+        <input type="button" value="自定义提交" onclick="SUBMIT()"/>
+    </form>
+    </body>
+</html>

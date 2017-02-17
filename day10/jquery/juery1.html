@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>HTML代码/文本/值</title>
+    </head>
+    <body>
+        <div id="id1">123<a>123</a></div>
+        <input name="mima" type="text" value="123456"/>
+        <script src="js/jquery-1.8.2.js"></script>
+        <script type="text/javascript">
+            //取值
+            var text= $('#id1').text()
+            var html= $('#id1').html()
+            console.log(text)
+            console.log(html)
+            //赋值
+            $('#id1').text('guolikai')
+            //query获取属性的值是val,dom是val;
+            console.log($("input[name='mima']").val())
+            $("input[name='mima']").val('9999')
+        </script>
+    </body>
+</html>

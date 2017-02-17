@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>mysqlbank</title>
+	</head>
+	<body>
+        <form action="http://172.16.1.100/" method="post">
+            Username:<input name="username"  type="text" /><br><br>
+            Password:<input name="password" type="password"><br><br>
+            <input type="submit" value="submit提交"/>
+        </form>
+      <label for="name1">姓名：<input id="name1" type="text"/></label>
+    <label for="name2">婚否：<input id="name2" type="radio"/></label>
+    <ul>
+        <li>glk</li>
+        <li>wdx</li>
+    </ul>
+    <ol>
+        <li>glk</li>
+        <li>wdx</li>
+    </ol>
+    <d1>
+        <dt>河南省</dt>
+        <dd>郑州</dd>
+        <dd>安阳</dd>
+        <dd>洛阳</dd>
+        <dt>海南省</dt>
+        <dd>海口</dd>
+        <dd>三亚</dd>
+    </d1>
+    <table border="1">
+        <tr>
+            <th>IP</th>
+            <th>IDC</th>
+            <th>Satus</th>
+        </tr>
+        <tr>
+            <td>172.16.1.100</td>
+            <td>BJ.BY</td>
+            <td>Online</td>
+        </tr>
+        <tr>
+            <td>172.16.1.110</td>
+            <td>BJ.BY</td>
+            <td>Online</td>
+        </tr>
+        <tr>
+            <td>172.16.1.120</td>
+            <td>BJ.YZ</td>
+            <td>Online</td>
+        </tr>
+    </table><br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>IP</th>
+                <th>IDC</th>
+                <th>Satus</th>
+                </tr>
+        <tr>
+                <th colspan="2">IP</th>
+                <th>Satus</th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>172.16.1.100</td>
+                <td>BJ.BY</td>
+                <td>Online</td>
+            </tr>
+            <tr>
+                <td rowspan="2">172.16.1.110</td>
+                <td>BJ.BY</td>
+                <td>Online</td>
+            </tr>
+            <tr>
+                <td>BJ.YZ</td>
+                <td>Online</td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="background-color:yellow">
+       <fieldset>
+           <legend>登录</legend>
+           <form action="http://127.0.0.1/" method="post" enctype="multipart/form-data">
+               <!--上传文件时Code，<form action="http://127.0.0.1/" enctype="multipart/form-data"> method="post" -->
+               <p><label for="name1">姓名：<input id="name1" type="text"/></label></p>
+               <p><label for="name2">密码：<input id="name2" type="password"/></label></p>
+               <p><input type="submit" value="登录"/></p>
+           </form>
+       </fieldset></div>
+    </body>
+</html>

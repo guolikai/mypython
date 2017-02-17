@@ -1,0 +1,53 @@
+1、
+#!/usr/bin/env python
+import os
+def get_fname():
+    while True:
+        fname = raw_input("filename: ")
+        if not os.path.exists(fname):
+            break
+        print "file already exists. Try again."
+    return fname
+def get_content():
+    contents = []
+    while True:
+        line = raw_input('(Enter to quit)> ')
+        if not line:
+            break
+        contents.append(line)
+    return contents
+def mkfile(fname, contents):
+    data = ['%s\n' % line for line in contents]
+    fobj = open(fname, 'w')
+    fobj.writelines(data)
+    fobj.close()
+if __name__ == '__main__':
+    fname = get_fname()
+    contents = get_content()
+mkfile(fname, contents)
+2、随机生成8位字符
+#!/usr/bin/env python
+import random
+all_chs = '1234567890qwertgyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'
+pwd = ''
+for i in range(8):
+    ch = random.choice(all_chs)
+    pwd += ch
+print pwd
+3、 随机生成8位字符
+#!/usr/bin/env python
+# -*- coding: utf8 -*-
+import random
+import string
+all_chs = string.letters + string.digits
+def gen_pass(num=8):
+    pwd = ''
+    for i in range(num):
+        ch = random.choice(all_chs)
+        pwd += ch
+    return pwd
+if __name__ == '__main__':
+    print "密码:", gen_pass()
+    print gen_pass(4)
+
+

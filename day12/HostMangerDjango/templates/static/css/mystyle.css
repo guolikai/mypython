@@ -1,0 +1,36 @@
+.web{
+	height:600px;width:300px;background-color:#C2FF68;
+	float:left;margin-left:10px;margin-top: 20px;
+	font-size:18px;border:2px solid red;
+}
+.remote{
+	height:600px;width:300px;background-color:#93FF93;
+	float:left;margin-top: 20px;margin-left: 20px;
+	font-size:18px;border: 2px solid red;
+	}
+.returnTop{
+	position:fixed;width:96px;height:20px;right:20px;
+ 	bottom:20px;color:black;background-color:green;border:2px solid red;
+ 	}
+.hide{
+	display:none;
+}
+
+.Button{
+	margin-left: 30px;
+    margin-top: 30px;
+    width: 140px;
+    height: 30px;
+    background-color: blue;
+}
+
+.Input{
+	width: 130px;
+    height: 30px;
+    border-radius: 3px;
+    border: solid 1px #eeeeee;
+    margin-top: 30px;
+    margin-left: 30px;
+    padding-left: 10px;
+    color: #000000;
+}

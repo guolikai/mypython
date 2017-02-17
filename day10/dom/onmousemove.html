@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>window&nbsp;event</title>
+        <script type="text/javascript">
+            function move(){
+                var x = window.event.clientX
+                var y = window.event.clientY
+                console.log(x,y)
+                divFly = document.getElementById('divFly')
+                divFly.style.left = x+'px';
+                divFly.style.top = y+'px';
+            }
+        </script>
+    </head>
+    <body onmousemove="move();">
+       <div id='divFly' style='position:absolute;'>
+			<img src='text.jpg' style='width:10px;height:10px;'  alt='image' />
+		</div>
+   </body>
+</html>

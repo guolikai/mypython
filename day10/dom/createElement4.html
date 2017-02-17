@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>dom4</title>
+        <style>
+            .show{}
+            .hide{display:none}
+        </style>
+    </head>
+    <body>
+        <div id ='t1' class="show" ></div>
+        <div id ='t2' name="guolikai"></div>
+        <div id ='t3' style="background-color:red;width:200px;height:200px;border:2px solid #333"></div>
+    <script type="text/javascript">
+        var tag = document.createElement("a");
+        tag.href = "http://www.baidu.com";
+        tag.innerText = "点我啊";
+        var id1 = document.getElementById("t1");
+        id1.appendChild(tag);
+
+        var tag2 = "<a href='http://www.sina.com'>走你</a>";
+        var id2 = document.getElementById('t2');
+        id2.innerHTML= tag2
+
+        var id1 = document.getElementById("t1");
+        id1.className='hide'
+        var id3 = document.getElementById('t2');
+        console.log(id3.getAttribute('name'));
+        id3.setAttribute('name','wudanxia');
+        console.log(id3.getAttribute('name'));
+
+        var id4 = document.getElementById('t3');
+        var width = id4.style.width
+        Width = width.substring(0,width.length-2)
+        want_width_value = parseInt(Width)+300
+        id4.style.background = 'blue'
+        console.log(width)
+        console.log(Width)
+        console.log(want_width_value)
+        id4.style.width = '400px'
+        </script>
+    </body>
+</html>

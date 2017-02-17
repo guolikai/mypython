@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>gundongtiao</title>
+
+    </head>
+    <body>
+        <div style="width:1000px;hight:1000px;background-color:blue">
+            <div id='process' style="width:10%;background-color:green">gundongtiao</div>
+        </div>
+        <input type="text" value="别闹" onclick="Stop();"/>
+        <script type="text/javascript">
+            /*
+            pro = 10;
+            function Fun(){
+                var id1 = document.getElementById('process');
+                pro = pro + 1;
+                if(pro>100){clearInterval(interval)}else{id1.style.width=pro+'%'}}
+            interval = setInterval('Fun()',2000)*/
+            pro = 10;
+            function Fun(){
+                var id1 = document.getElementById('process');
+                pro = pro + 90;
+                id1.style.width=pro+'%'}
+            interval = setTimeout('Fun()',5000)
+            function Stop(){
+                 clearTimeout(interval)
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block page-content %}   
+
+<div class="contents">
+    <h3>{{bbs_obj.title}}</h3>
+    <br>
+    Address:{{bbs_obj.url}}<br>
+    Model:{{bbs_obj.news_type}}<br>
+    Author:{{bbs_obj.user}}<br>
+    Date:{{bbs_obj.create_date}}<br>
+</div>
+{% endblock %}
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>CSS</title>
+        <style>
+            .c1{
+                border:2px solid #999;
+            }
+            .c2{
+                font-size:60px;
+            }
+            .returnTop{
+                position:fixed;
+                width:96px;
+                height:20px;
+                right:20px;
+                bottom:20px;
+                color:white;
+                background-color:green;
+            }
+            .hide{display:none;}
+        </style>
+    </head>
+    <body>
+        <div class="c1" style="height:3000px">xinlang</div>
+        <!--
+        <div id="returnTop" class="returnTop" onclick="GoTop()">&nbsp;返回顶部</div>
+        -->
+        <div id="returnTop" class="returnTop">&nbsp;返回顶部</div>
+        <script src="js/jquery-1.8.2.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                //当页面加载完成之后，默认执行函数
+                $('#returnTop').click(function(){
+                        $(window).scrollTop(0);
+                });
+            })
+            $(window).scroll(function(){
+                //console.log('鼠标再动');
+                //获取滚动条离顶部多高;
+                var height = $(window).scrollTop();
+                //console.log(height)
+                if(height>0){
+                        //显示返回顶部
+                        $('#returnTop').removeClass('hide');
+                     }else{
+                        //隐藏返回顶部
+                        $('#returnTop').addClass('hide');
+                     }
+            });
+            //function GoTop(){$(window).scrollTop(0);}
+        </script>
+    </body>
+</html>

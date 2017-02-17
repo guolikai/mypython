@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<title>欢迎新同学</title>
+		<script type="text/javascript">
+
+			 function move(){
+				var x = window.event.clientX
+				var y = window.event.clientY
+				console.log(x,y)
+
+				divFly = document.getElementById('divFly')
+				
+				divFly.style.left = x+'px';
+				divFly.style.top = y +'px';
+
+			}
+
+
+			function keycode(){
+				alert(window.event.keyCode);
+			}
+        
+           
+		</script>
+	</head>
+	<body >
+    
+    <div onmousemove='move()'; style='height:400px;background-color:green;'></div>
+    
+    
+    
+    
+		<input type='button' value='点击' onclick='doo()' />
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+		<a href="http://www.baidu.com" onclick='alert("go baidu.com");window.event.returnValue=false;'>去百度吧</a>
+
+        
+        
+        
+        
+        
+        
+		<div id='divFly' style='position:absolute;'>
+			<img src='Chrysanthemum.jpg' style='width:10px;height:10px;'  alt='image' />
+		</div>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+	 	<input type='button' value='key' onclick='keycode()' />
+
+		<div style='height:600px;'></div>
+	</body>
+</html>

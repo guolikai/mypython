@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<title></title>
+	<link rel="stylesheet" href="/static/css/comm.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/login.css" type="text/css">
+	
+	<script type="text/javascript" src="/static/js/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.base64.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.md5.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>	
+	</head>
+<body class="body">
+	<div class="logo"><p class="logo_text">主机管理平台</p> </div>
+	<form class="login"  action='/web/register.html' method='POST'> 
+	<!--  用户名：{{form.username}}<br><br>
+	邮    箱：{{form.email}}<br><br>
+	{{form.as_table}}
+	-->
+		<p class="system">注册窗口</p>
+		<input type="text" id="user" name="username" placeholder="请输入用户名" class="username" />
+	    <input type="password" id="pass" name="password"  placeholder="请输入密码" class="password" />
+	    <input type="text" id="pass" name="email"  placeholder="请输入邮箱" class="password" />
+	   <select name="usertype">
+					{% for item in usertype %}
+					<option value="{{item.id}}">{{item.typename}}</option>
+					{% endfor %}
+				</select>
+				
+	    <label style="color:red;">
+	    <button class="login_a" type="submit">注 册</button>{{status}}</label
+	</form>
+	<p class="footer">Copyright © 2016-12-20 GuoLikai 主机管理系统<br><br>技术支持:glk73748196@sina.com</p>
+    
+</body>
+</html>

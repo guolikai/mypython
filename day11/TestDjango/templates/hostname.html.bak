@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hostname List</title>
+</head>
+<body>
+	<div style='background-color:red'><h1>{{system}}</h1></div>
+	
+	{% if system %}
+		<h1>鐪�</h1>
+	{% else %}
+		<h1>鍋�</h1>
+	{% endif %}
+	
+	{% ifequal system 'host' %}
+		<h1>鐩哥瓑</h1>
+	{% else %}
+		<h1>涓嶇浉绛�</h1>
+	{% endifequal %}
+	
+	<table border="3">
+		<caption>鎴戠殑鏍囬</caption>
+			<tr>
+				<th>id</th>
+				<th>hostname</th>
+				<th>create_date</th>
+				<th>update_date</th>
+			</tr>
+		{% for item in data %}
+			<tr>
+				<td>{{item.id}}</td>
+				<td>{% mymethod item.id}</td>
+				<td>{{item.hostname}}</td>
+				<td>{{item.create_date|date:"Y-m-d H:i:s"}}</td>
+				<td>{{item.update_date|date:"Y-m-d H:i:s"}}</td>
+			</tr>
+		{% endfor %}
+		
+	</table>
+</body>
+</html>

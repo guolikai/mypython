@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>欢迎莅临中国教师研修网指导&nbsp;</title>
+
+        <script type="text/javascript">
+            function Go(){
+            var content = document.title
+            var firstchar = content.charAt(0)
+            var sub = content.substring(1,content.length)
+            document.title = sub+firstchar
+            }
+            interval = setInterval("Go()",1000)
+            //alert(window.location.href)
+            //window.location.href='http://www.baidu.com'
+            function Stop(){
+                clearTimeout(interval);
+            }
+        </script>
+    </head>
+    <body>
+
+    <body onload="console.log('Hello')" onbeforeunload="window.event.returnValue='是否离开此页面退出?'">
+    <input type="button" value="停止动态标题" onclick="Stop()"/>
+    </body>
+</html>

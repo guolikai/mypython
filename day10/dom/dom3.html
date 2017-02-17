@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>dom3</title>
+
+
+    </head>
+    <body>
+    <div id ='t1'><a>guo<p>li</p>kai1</a> </div><br>
+    <div name="n1"><a>guo<p>li</p>kai2</a></div><br>
+    <div name="n1"><a>guo<p>li</p>kai3</a></div><br>
+    <script type="text/javascript">
+           /* var id1 = document.getElementById('t1');
+            console.log(id1.innerText);
+            id1.innerText= 'guolikai-innerText';
+            console.log(id1.innerHTML);
+            id1.innerText= 'guolikai-innerHTML';
+            */
+            var names1 = document.getElementsByName('n1');
+            console.log(names1.length)
+            for(var name in names1){
+                console.log(name)
+                //console.log(names1[name].innerText)
+                //names1[name].innerText = 'glk';
+                //console.log(names1[name].innerHTML)
+            }
+
+            /*
+            var names2 = document.getElementsByTagName('div');
+            console.log(names2)
+            for(var name in names2){
+                console.log(names2[name].innerHTML);
+            }*/
+        </script>
+    </body>
+</html>

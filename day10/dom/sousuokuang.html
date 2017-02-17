@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>window&nbsp;event</title>
+        <style>
+            .gray{color:gray}
+            .black{color:black}
+        </style>
+        <script type="text/javascript">
+            document.write('搜索一下1')
+            function Write(){
+                document.write('搜索一下2')
+            }
+            function Enter(){
+                var id = document.getElementById('tip');
+                if(id.value=='请输入关键字'||id.value.trim()==''){id.value = ''}
+                else{id.className = 'black';}
+            }
+            function Leave(){
+                var id = document.getElementById('tip');
+                var val = id.value;
+                if(val.length==0||id.value.trim()==''){
+                    id.value = '请输入关键字';id.className = 'gray';
+                }else{id.className = 'black'}
+            }
+
+            </script>
+    </head>
+    <body>
+        <input type="text" class="gray" id='tip' value="请输入关键字" onfocus="Enter()" onblur="Leave()"/>
+        <input type="button" value="write" onclick="Write()"/>
+    </body>
+</html>

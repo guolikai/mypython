@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>主机信息 分页</title>
+<style>
+	#Pageing A{
+	background-color:#008844;
+	border:1px solid White;
+	text-decoration:none;color:White;
+	padding:.1em .6em .2em .6em
+	}
+	#Pageing A.selected{background-color:#AA7700}
+
+</style>
+</head>
+<body>
+	<h1>主机信息</h1>
+	<table border='2'>
+	    <tr>
+	    <th>主机名</th>
+	    <th>IP地址</th>
+	    </tr>
+		{% for item in data %}
+			<tr>
+				<td>{{item.hostname}}</td>
+				<td>{{item.ip}}</td>
+			</tr>
+		{% endfor %}
+	</table>
+	<div>总条数:{{count}} 显示:
+	<select id='s1' onchange='ChangPageItem(this);'>
+		<option value='5'>5</option>
+		<option value='10'>10</option>
+		<option value='20'>20</option>
+		<option value='30'>30</option>
+		<option value='40'>40</option>
+		<option value='50'>50</option>
+	</select>
+	
+	</div>
+	<div id='Pageing'>
+		{{page}}
+	</div>
+	<script src='/static/jquery-1.8.2.js'></script>
+	<script src='/static/jquery.cookie.js'></script>
+	<script type='text/javascript'>
+	    $(function(){
+	    	var per_item = $.cookie('pager_num');
+	    	if(per_item){
+	    		$('#s1').val(per_item);
+	    	}else{$.cookie('pager_num',10,{path:'/'})}
+	    });
+	    
+		function ChangPageItem(arg){
+			//创建修改Cookie值
+			var value=$(arg).val()
+			$.cookie('pager_num',value,{path:'/'});
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body onKeyDown="doKey(event)" onKeyUp="doKey2(event)">
+
+    <script>
+    function doKey(e) {
+        evt = window.event;
+        document.getElementById('keydown').innerHTML = evt.keyCode+' Pressed';
+    }
+
+    function doKey2(e) {
+        document.getElementById('keydown').innerHTML='';
+    }
+    </script>
+
+    <div id="keydown">
+        内容
+    </div>
+    </body>
+</html>

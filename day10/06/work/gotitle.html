@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<title>欢迎新同学</title>
+		<script type="text/javascript">
+			function scoll(){
+				content = document.title;
+				firstChar = content.charAt(0);
+				another = content.substring(1,content.length);
+				newContent = another+firstChar;
+				document.title = newContent;
+			}
+			var go = setInterval('scoll()',1000)
+
+			function stop(){
+				clearInterval(go);
+			}
+		</script>
+	</head>
+	<body>
+		<input type='button' value='停止' onclick='stop()' />
+	</body>
+</html>

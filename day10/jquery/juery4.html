@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>追加替换</title>
+
+    </head>
+    <body>
+        <p>I would like to say:</p>
+        <input id="addid1" type="button" value="追加1">
+        <input id="addid2" type="button" value="替换2">
+        <input id="addid3" type="button" value="追加3">
+        <script src="js/jquery-1.8.2.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $('#addid1,#addid2,#addid3').click(function(){
+                    //获取当前点击的标签;
+                    var currentid = $(this).attr('id');
+                    if(currentid=='addid1'){
+                    $("p").append('&nbsp;Hello,nice to meet you!');}
+                    //$("p").prepend('&nbsp;Hello,nice to meet you!');}
+                    else if(currentid=='addid2'){$("p").text('what are you doing,Name?');}
+                    else{}
+                });
+            })
+
+        </script>
+
+    </body>
+</html>

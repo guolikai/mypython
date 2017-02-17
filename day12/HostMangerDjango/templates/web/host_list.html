@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<title></title>
+	<link rel="stylesheet" href="/static/css/comm.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/login.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/returntop.css" type="text/css">
+	<script type="text/javascript" src="/static/js/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.base64.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.md5.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>	
+	<script src='/static/jquery/jquery-1.8.2.js'></script>
+	<script src='/static/jquery/jquery.cookie.js'></script>
+	<style>
+	#Pageing A{
+		background-color:#008844;
+		border:1px solid White;
+		text-decoration:none;color:White;
+		padding:.1em .6em .2em .6em
+	}
+	#Pageing A.selected{background-color:#AA7700}
+	.choice {width: 40px;
+    height: 24px;
+    border-radius: 3px;
+    border: solid 1px #eeeeee;
+    margin-top: 18px;
+    margin-left: 1px;
+    padding-left: 1px;
+    color: #000000;}
+	</style>
+</head>
+<body> 
+	<!--<div class="logo"><p class="logo_text">主机管理平台</p> </div>-->
+<!-- 左侧菜单选项========================================= -->
+	<div class="floatleft">
+        <p class="logo_p">欢迎登陆主机管理系统</p>
+		<ul class="nav">
+			<li class="nav_li">
+            <a id="typeMeun" href="javascript:void(0);" class="nav_a tb" >用户类型管理<span ></span></a>
+			<ul class="detailed hidden">
+						<li><a class="focus" href="/web/type_add.html">用户类型添加</a></li>
+						<li><a class="focus" href="/web/type_del.html">用户类型删除</a></li>
+						<li><a class="focus" href="/web/type_mod.html">用户类型修改</a></li>
+						<li><a class="focus" href="/web/type_get.html">用户类型查找</a></li>
+					 </ul>
+            </li>
+			<li class="nav_li">
+			 	<a id="userMeun" href="javascript:void(0);" class="nav_a tb" >用户管理<span></span></a>
+					<ul class="detailed hidden">
+						<li><a class="focus" href="/web/user_add.html">用户添加</a></li>
+						<li><a class="focus" href="/web/user_del.html">用户删除</a></li>
+						<li><a class="focus" href="/web/user_mod.html">用户修改</a></li>
+						<li><a class="focus" href="/web/user_get.html">用户查找</a></li>
+					 </ul>
+            </li>
+			<li class="nav_li">
+			 	<a id="groupMeun" href="javascript:void(0);" class="nav_a tb" >用户组管理<span></span></a>
+					<ul class="detailed hidden">
+						<li><a class="focus" href="/web/group_add.html">用户组添加</a></li>
+						<li><a class="focus" href="/web/group_del.html">用户组删除</a></li>
+						<li><a class="focus" href="/web/group_mod.html">用户组修改</a></li>
+						<li><a class="focus" href="/web/group_get.html">用户组查找</a></li>
+					 </ul>
+            </li>
+            
+            <li class="nav_li">
+            	<a id="hostMeun" href="javascript:void(0);" class="nav_a tb" >主机管理<span></span></a>
+				<ul class="detailed">
+					<li><a class="focus" href="/web/host_add.html">添加主机</a></li>
+					<li><a class="focus" href="/web/host_list.html">主机列表</a></li>
+					<li><a class="focus" href="/web/host_mod.html">修改主机</a></li>
+					<li><a class="focus" href="/web/host_del.html">删除主机</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="floatright">
+        <div class="introduce">
+            <p class="platform"></p>
+            <p class="personal">{{username}}&nbsp;&nbsp;<a href='/web/logout/'>退出</a></p>
+        </div>
+		<div id="content">
+				<div class="con">
+					<p class="breadcrumb"><a href="javascript:void(0);">首页  ></a><a href="javascript:void(0);">主机管理 ></a><a href="javascript:void(0);">主机列表</a></p>
+				</div>
+				<table style='margin-left: 4%;' border="2">
+						<tr>
+							<th>主机名</th>
+							<th>ip</th>
+							<th>所属用户组</th>
+							<th>所属用户组ID</th>
+							<th>主机创建时间</th>
+							<th>主机更新时间</th>
+						</tr>
+						{% for item in data %}
+						<tr>
+							<td>{{item.hostname}}</td>
+							<td>{{item.ip}}</td>
+							<td>{{item.user_group.groupname}}</td>
+							<td>{{item.user_group.id}}</td>
+							<td>{{item.create_date|date:"Y-m-d H:i:s"}}</td>
+							<td>{{item.update_date|date:"Y-m-d H:i:s"}}</td>
+						<!-- item封装了Asset表中的所有字段：hostname,ip,user_group,create_date,update_date,
+						item.user_group对应的是UserGroup表中的对象 -->
+						</tr>
+						{% endfor %}
+					</table>
+			</div>
+				<div style='margin-left: 4%;'>总条数:{{count}} 每页显示:<select class='choice' id='s1' onchange='ChangPageItem(this);'>
+					<option value='5'>5</option>
+					<option value='10'>10</option>
+					<option value='20'>20</option>
+					<option value='30'>30</option>
+					<option value='40'>40</option>
+					<option value='50'>50</option></select>
+				</div>
+				<div style='margin-left: 4%;' id='Pageing'>{{page}}</div>
+	
+	<script type='text/javascript'>
+	    $(function(){
+	    	var per_item = $.cookie('pager_num');
+	    	if(per_item){
+	    		$('#s1').val(per_item);
+	    	}else{$.cookie('pager_num',10,{path:'/'})}
+	    });
+	    
+		function ChangPageItem(arg){
+			//创建修改Cookie值
+			var value=$(arg).val()
+			$.cookie('pager_num',value,{path:'/'});
+		};
+		$(".nav_li > a").click(function(){
+            $(this).parent().siblings().removeClass("focus");
+            $(this).parent().siblings().find("span").removeClass("close");
+            $(this).parent().siblings().find("ul").addClass("hidden");
+            $(this).parent().toggleClass("focus");
+            $(this).parent().find("ul").toggleClass("hidden");
+            $(this).find("span").toggleClass("close");
+        });
+        $(".detailed").find("li").click(function(){
+            $(".detailed >li").find("a").removeClass("focus");
+            $(this).find("a").addClass("focus");
+        });
+	
+	</script>
+</body>
+</html>
