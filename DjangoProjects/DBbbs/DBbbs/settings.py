@@ -25,7 +25,7 @@ SECRET_KEY = 'c546$5^uzflino00-0benh_khqv!bmb29h14^_nmmtw=@ijkq@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 #DEBUG = False
-ALLOWED_HOSTS = ['*',]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,9 +78,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'dbbbs',
-        'USER': 'monitor',
+        'USER': 'root',
         'PASSWORD': '123456',
-        'HOST': '172.16.1.200',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
@@ -124,6 +124,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'templates/static/'),
-    #'/App/python/DBbbs/templates/static',
     )
-#STATIC_ROOT = "/App/python/DBbbs/templates/static/"

@@ -220,7 +220,7 @@
 					success:function(callback){
 						//console.log(callback);
 						var obj = jQuery.parseJSON(callback);
-			//			window.last_id = obj[0].id
+						window.last_id = obj[0].id
 						obj = obj.reverse();
 						$.each(obj,function(k,v){
 							var name=v.user__username

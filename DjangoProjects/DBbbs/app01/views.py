@@ -50,12 +50,11 @@ def logout(request):
     del request.session['current_user']
     return redirect('/login')
 
-@outer
+#@outer
 def index(request):
     ret = {'bbs_list':'','username':''}
-    #user_dict = request.session.get('current_user',None)
-    current_user = request.session.get('current_user',None)['username']
-    ret['username'] = current_user
+    user_dict = request.session.get('current_user',None)
+    ret['username'] = user_dict['username']
     bbs_list = models.News.objects.all()
     ret['bbs_list']=bbs_list
     return render(request,'index.html',ret)
