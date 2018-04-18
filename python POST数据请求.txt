@@ -1,0 +1,131 @@
+POST请求的模拟案例:
+一般HTTP请求提交数据，需要编码成 URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。
+web界面url发送数据的时候，并不是以汉字的时候去定义的：因为http在传输数据时，必须对汉字进行转码(URL编码)。
+URL编码里面没有空格、没有汉字、没有多字节的字符，也就是都是单字符的。
+可以通过"tool.chinaz.com/tools/urlencode.aspx"查看字符编码。
+例如: https://www.baidu.com/baidu?wd=%E9%83%AD%E7%AB%8B%E5%87%AF
+汉字-》url： uriencode编码，每三个作为一个段，%间隔。
+转化成汉字： uridecode解码
+urllib.urlencode 接收的参数是一个字典。
+
+urllib 和 urllib2 都是接受URL请求的相关模块，但是提供了不同的功能。两个最显著的不同如下：
+urllib 仅可以接受URL，不能创建 设置了headers 的Request 类实例；
+但是 urllib 提供 urlencode 方法用来GET查询字符串的产生，而 urllib2 则没有。（这是 urllib 和 urllib2 经常一起使用的主要原因）
+编码工作使用urllib的urlencode()函数，帮我们将key:value这样的键值对转换成"key=value"这样的字符串，
+解码工作可以使用urllib的unquote()函数。（注意，不是urllib2.urlencode() )
+#-------------------------------------------------------------------------------------------------------------
+>>> URL="https://www.baidu.com/baidu?wd=%E9%83%AD%E7%AB%8B%E5%87%AF"
+>>> URL
+'https://www.baidu.com/baidu?wd=%E9%83%AD%E7%AB%8B%E5%87%AF'
+>>> import urllib
+>>> urllib.unquote(URL)
+'https://www.baidu.com/baidu?wd=\xe9\x83\xad\xe7\xab\x8b\xe5\x87\xaf'
+>>> 
+>>> urllib.unquote(URL)
+'https://www.baidu.com/baidu?wd=\xe9\x83\xad\xe7\xab\x8b\xe5\x87\xaf'
+>>> urllib.unquote(URL).decode("utf-8")
+u'https://www.baidu.com/baidu?wd=\u90ed\u7acb\u51ef'
+>>> print urllib.unquote(URL).decode("utf-8")
+https://www.baidu.com/baidu?wd=郭立凯
+#-------------------------------------------------------------------------------------------------------------
+[root@localhost ~]# cat urllib_urlencode_demo.py 
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+
+import urllib
+import urllib2
+
+# 通过抓包的方式获取的url，并不是浏览器上显示的url
+url = "http://fanyi.youdao.com/translate?smartresult=dict&smartresult=rule&smartresult=ugc&sessionFrom=null"
+
+# 完整的headers
+headers = {
+        "Accept" : "application/json, text/javascript, */*; q=0.01",
+        "X-Requested-With" : "XMLHttpRequest",
+        "User-Agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36",
+        "Content-Type" : "application/x-www-form-urlencoded; charset=UTF-8",
+    }
+
+# 用户接口输入
+key = raw_input("请输入需要翻译的文字:")
+
+# 发送到web服务器的表单数据
+formdata = {
+"type" : "AUTO",
+"i" : key,
+"doctype" : "json",
+"xmlVersion" : "1.8",
+"keyfrom" : "fanyi.web",
+"ue" : "UTF-8",
+"action" : "FY_BY_CLICKBUTTON",
+"typoResult" : "true"
+}
+
+# 经过urlencode转码
+data = urllib.urlencode(formdata)
+
+# 如果Request()方法里的data参数有值，那么这个请求就是POST
+# 如果没有，就是Get
+request = urllib2.Request(url, data = data, headers = headers)
+
+print urllib2.urlopen(request).read()
+#-------------------------------------------------------------------------------------------------------------
+python 函数注释使用说明:
+#--------------------------------------------------------------- 
+[root@localhost ~]# cat function_method_demo.py 
+#!/usr/bin/env python3
+#-*- coding:utf-8 -*-
+#Author:GuoLikai@2018-03-20 16:14:30
+
+import subprocess
+import re
+import sys
+def linuxoscommand(CMD):
+    """
+        作用:通过python来调用linux中的系统命令
+        CMD:linux中的执行的系统命令
+    """
+    result=[]
+    cmd_res = subprocess.getstatusoutput(CMD)
+    for item in cmd_res[1].split("\n"):
+        result.append(item)
+    return result
+
+if __name__ == "__main__":
+    CMD=sys.argv[1]
+    print(linuxoscommand(CMD))
+#--------------------------------------------------------------- 
+[root@localhost ~]# ipython 
+Python 2.6.6 (r266:84292, Aug 18 2016, 15:13:37) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 0.13.2 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: import function_method_demo
+
+In [2]: help(function_method_demo)
+
+#---------------------------------------------------------------   
+Help on module function_method_demo:
+
+NAME
+    function_method_demo
+
+FILE
+    /root/function_method_demo.py
+
+DESCRIPTION
+    #-*- coding:utf-8 -*-
+    #Author:GuoLikai@2018-03-20 16:14:30
+
+FUNCTIONS
+    linuxoscommand(CMD)
+        作用:通过python来调用linux中的系统命令
+        CMD:linux中的执行的系统命令
+(END) 
+#---------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------
